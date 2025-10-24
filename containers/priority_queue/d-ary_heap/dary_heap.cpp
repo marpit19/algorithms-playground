@@ -1,7 +1,6 @@
 #include "dary_heap.h"
 
 #include <cstddef>
-#include <utility>
 
 template <typename T>
 void DHeap<T>::bubbleUp(size_t index) {
