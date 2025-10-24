@@ -9,17 +9,17 @@ void DHeap<T>::bubbleUp(size_t index) {
         index = pairs.size() - 1;
     }
 
-    size_t parent_index = index;
-    while (parent_index > 0) {
-        size_t current_index = parent_index;
-        parent_index = getParentIndex(parent_index);
-
-        if (pairs[parent_index].priority < pairs[current_index].priority) {
-            std::swap(pairs[current_index], pairs[parent_index]);
+    Pair<T> current = pairs[index];
+    while (index > 0) {
+        size_t parent_index = getParentIndex(index);
+        if (pairs[parent_index].priority < current.priority) {
+            pairs[index] = pairs[parent_index];
+            index = parent_index;
         } else {
             break;
         }
     }
+    pairs[index] = current;
 }
 
 template <typename T>
